@@ -776,7 +776,7 @@ function onDocumentKeyPress( event ) {
     				);
     				sunSphere.position.y = 30000;
     				sunSphere.visible = false;
-    				scene.add( sunSphere );
+    			//	scene.add( sunSphere );
 
             /// GUI
     				var effectController = {
@@ -807,11 +807,11 @@ function onDocumentKeyPress( event ) {
     					renderer.render( scene, camera );
     				}
 
-    		/*		var gui = new dat.GUI();
+    		/*	var gui = new dat.GUI();
     				gui.add( effectController, "MorningToEvening", 0, 1, 0.0001 ).onChange( guiChanged );
     				gui.add( effectController, "SpringToWinter", 0, 1, 0.0001 ).onChange( guiChanged );
-    				gui.add( effectController, "sun" ).onChange( guiChanged );
-    				guiChanged(); */
+    				gui.add( effectController, "sun" ).onChange( guiChanged ); */
+    				guiChanged();
     }
     //Camera Direction Control
     document.addEventListener( 'keypress', onDocumentKeyPress, false );
