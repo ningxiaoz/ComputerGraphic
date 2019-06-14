@@ -11,12 +11,12 @@
       display: none; /* Hidden by default */
       position: fixed; /* Stay in place */
       z-index: 1; /* Sit on top */
-      padding-top:30px;
-      padding:20px; /* Location of the box */
+      padding-top:20px;
+      padding:10px; /* Location of the box */
       left: 0;
       top: 0;
       width: 40%; /* Full width */
-      height: 30%; /* Full height */
+      height: 20%; /* Full height */
       overflow: auto; /* Enable scroll if needed */
       background-color:#9DC0F3; /* Fallback color */
 
@@ -40,7 +40,7 @@
    <script src="js/OBJLoader.js"></script>
    <script src="js/stats.min.js"></script>
    <script src="js/Sky.js"></script>
-   
+
     <div class="container"></div>
     <div id="myModal" class="modal">
       <!-- Modal content -->
@@ -412,7 +412,7 @@ floor5.position.set(-1200,10,-450);
 	var cube11=new THREE.Mesh(box11,material11);
 	cube11.position.set(-300,230,-800);
 	cube11.name="The Loft\n";
-	cube11.userData="The on-campus small bar featuring wines, cocktails, spirits and craft beer.The Loft@UTS has both indoor and outdoor spaces, with a shady courtyard that's perfect for when you're after some fresh air.";
+	cube11.userData="The Loft@UTS has both indoor and outdoor spaces, with a shady courtyard that's perfect for when you're after some fresh air.";
 	scene.add(cube11);
 //6
 	var box12=new THREE.BoxGeometry(400,400,600);
@@ -438,7 +438,7 @@ floor5.position.set(-1200,10,-450);
 	var cube13=new THREE.Mesh(box13,material13);
 	cube13.position.set(450,200,-800);
 	cube13.name="UTS Central\n";
-	cube13.userData="UTS Central, which is currently under construction and is intended as a central hub for the campus. The building will include the new UTS Library, the Faculty of Law and the Hive Super Lab.";
+	cube13.userData="UTS Central, which is currently under construction and is intended as a central hub for the campus.";
 	cube13.castShadow=true;
 	scene.add(cube13);
 
@@ -447,7 +447,7 @@ floor5.position.set(-1200,10,-450);
 	var cube14=new THREE.Mesh(box14,material14);
 	cube14.position.set(355,400,-800);
 	cube14.name="UTS Central\n";
-	cube14.userData="UTS Central, which is currently under construction and is intended as a central hub for the campus. The building will include the new UTS Library, the Faculty of Law and the Hive Super Lab.";
+	cube14.userData="UTS Central, which is currently under construction and is intended as a central hub for the campus.";
 	cube14.castShadow=true;
 	scene.add(cube14);
 
@@ -459,10 +459,11 @@ window.addEventListener( 'click', onMouseClick, false );
 // add sky
 initSky();
 
+//function to close the pop-up information modal box
 function closeButton(n){
   document.getElementById('myModal').style.display="none";
 }
-
+//function to open the pop-up information modal box
 function onMouseClick( e ) {
 		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;;
 		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
@@ -471,8 +472,7 @@ function onMouseClick( e ) {
 		if (intersects.length ){
 			var target=intersects[0].object;
 			if(target.name && target.name!="ground"){
-        var content='<br>'+'Name: '+target.name+'<br>'+'<br>'+'Info: '+target.userData+
-                    '<br>'+'<br>'+'<br>'+'<form><input type="button" value="Close" id="but" style="position:relative;bottom:0px;right=0px"></form>';
+        var content='<br>'+'Name: '+target.name+'<br>'+'<br>'+'Info: '+target.userData+'<br>'+'<br>'+'<form><input type="button" value="Close" id="but" style="position:relative;bottom:0px;right=0px"></form>';
         document.getElementById('myModal').innerHTML=content;
         document.getElementById('myModal').style.display="block";
         document.getElementById('but').addEventListener('click',closeButton);
